@@ -34,7 +34,7 @@ function toKmh(x) {
 }
 
 function toWindDirection(x) {
-    if ((x >= 335) && (x < 25)) {
+    if ((x >= 335) || (x < 25)) {
         return "Northerly";
     } else if ((x >= 25) && (x < 65)) {
         return "Nor'easter";
