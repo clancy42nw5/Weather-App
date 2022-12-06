@@ -108,6 +108,6 @@ async function getWeather() {
 
 //global code
 
-let searchPlace = "port blair"
+let searchPlace = "Sydney"
 
 getWeather();
