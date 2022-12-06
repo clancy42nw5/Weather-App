@@ -55,16 +55,8 @@ function toWindDirection(x) {
 
 function fromEpoch(x) {
     y = new Date(x*1000);
-    console.log(y);
+    //console.log(y);
     return y;
-}
-
-function getMinute(x) {
-    return (x.getHours);
-}
-
-function getHour(x) {
-    return (x.getMinutes);
 }
 
 searchForm.addEventListener('submit', (event) => {
@@ -95,27 +87,27 @@ async function getWeather() {
     feelsLike.textContent = parseInt(toCelsius(weatherData.main.feels_like)) + "°c";
     maxTemp.textContent = parseInt(toCelsius(weatherData.main.temp_max)) + "°c";
 
+    //rain code v
 
-    //lessRain.textContent = weatherData.rain.1h;
-    //moreRain.textContent = weatherData.rain;3h;
+    lessRain.textContent = weatherData.rain;
+    moreRain.textContent = weatherData.rain;
 
+    console.log(weatherData.rain);
+    console.log(weatherData.rain);
+
+    //rain code ^
 
     humidity.textContent = weatherData.main.humidity + "%";
     windSpeed.textContent = parseInt(toKmh(weatherData.wind.speed)) + " km/h";
     windDegree.textContent = weatherData.wind.deg;
     windDirect.textContent = toWindDirection(weatherData.wind.deg);
-
     
-    sunrise.textContent = fromEpoch(weatherData.sys.sunrise);
-    sunset.textContent = fromEpoch(weatherData.sys.sunset);
-
-
-    console.log((weatherData.sys.sunrise).getHours);
-
+    sunrise.textContent = fromEpoch(weatherData.sys.sunrise).getHours()+":"+fromEpoch(weatherData.sys.sunrise).getMinutes();
+    sunset.textContent = fromEpoch(weatherData.sys.sunset).getHours()+":"+fromEpoch(weatherData.sys.sunset).getMinutes();
 };
 
 //global code
 
-let searchPlace = "sydney"
+let searchPlace = "port blair"
 
 getWeather();
